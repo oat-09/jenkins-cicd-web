@@ -24,11 +24,14 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                echo 'Deploying application...'
-                bat 'echo Deployment completed successfully'
-            }
-        }
+    steps {
+        echo 'Deploying web application...'
+        bat 'if not exist C:\\jenkins-deploy mkdir C:\\jenkins-deploy'
+        bat 'xcopy /Y index.html C:\\jenkins-deploy\\'
+        bat 'xcopy /Y style.css C:\\jenkins-deploy\\'
+        bat 'xcopy /Y script.js C:\\jenkins-deploy\\'
+    }
+}
     }
 
     post {
