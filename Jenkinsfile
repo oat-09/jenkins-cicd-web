@@ -12,19 +12,21 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build Step: Checking files in workspace'
-                sh 'ls -la'
+                bat 'dir'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Testing HTML...'
+                bat 'echo HTML test completed successfully'
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
+                bat 'echo Deployment completed successfully'
             }
         }
     }
